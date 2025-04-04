@@ -21,21 +21,35 @@ public final class Main {
 			schild,
 			ampel
 		);
-				
-//		for (Verkehrszeichen each : lager) {
-//			each.auswirkung();
-//		}
-		lager.forEach(
-			Verkehrszeichen::auswirkung
-		);
+		
+		for (Verkehrszeichen each : lager) {
+			// Jeder polymorphe Methodenaufruf ist eine implizite Konditionalstruktur
+			// über den instantiierten Objekttyp
+//			switch(x typeof each each.getClass()) {
+//			case x == Tempo30Schild.class -> Tempo30Schild.auswirkung(each);
+//			case RoteAmpel.class -> RoteAmpel.auswirkung(each);
+//			case NächtlichesTempo30.class -> NächtlichesTempo30.auswirkung(each);
+//			default: throw new NoSuchMethodError();
+//			}
+			each.auswirkung();
+		}
+//		lager.forEach(
+//			Verkehrszeichen::auswirkung
+//		);
+//		lager.forEach(
+//			v -> Verkehrszeichen.auswirkung(v)
+//		);
+//		lager.forEach(
+//			v -> v.auswirkung()
+//		);
 		
 		final Kreuzung todeskreisel = new Kreuzung();
 		todeskreisel.stelleAuf(schild);
 		todeskreisel.stelleAuf(ampel);
 		
-//		for (Verkehrszeichen each : lager) {
-//			todeskreisel.stelleAuf(each);
-//		}
+		for (Verkehrszeichen each : lager) {
+			todeskreisel.stelleAuf(each);
+		}
 		lager.forEach(
 			todeskreisel::stelleAuf
 		);
