@@ -51,6 +51,9 @@ public final class Main {
 			todeskreisel.stelleAuf(each);
 		}
 		lager.forEach(
+			v -> todeskreisel.stelleAuf(v)
+		);
+		lager.forEach(
 			todeskreisel::stelleAuf
 		);
 	}
