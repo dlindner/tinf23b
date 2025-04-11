@@ -1,6 +1,6 @@
 package de.dhbw.tinf23b.intro;
 
-public abstract class Verkehrszeichen /*extends Object*/ {
+public abstract class Verkehrszeichen extends Object {
 
 	public Verkehrszeichen() {
 		super();
