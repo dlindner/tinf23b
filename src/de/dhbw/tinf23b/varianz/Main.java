@@ -2,6 +2,11 @@ package de.dhbw.tinf23b.varianz;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import de.dhbw.tinf23b.intro.NächtlichesTempo30;
 import de.dhbw.tinf23b.intro.Tempo30Schild;
@@ -10,8 +15,8 @@ import de.dhbw.tinf23b.intro.Verkehrszeichen;
 public class Main {
 
 	private static List<? extends Tempo30Schild> erstelleListe_Covariant() {
-		List<? extends Tempo30Schild> result = new ArrayList<NächtlichesTempo30>();
-//		result.add(new NächtlichesTempo30());
+		List<Tempo30Schild> result = new ArrayList<Tempo30Schild>();
+		result.add(new Tempo30Schild());
 		return result;
 	}
 	
@@ -20,7 +25,7 @@ public class Main {
 		result.add(new NächtlichesTempo30());
 		return result;
 	}
-	
+		
 	public static void main(String[] args) {
 		// Contravariant v
 		List<? super Tempo30Schild> zeichen4 = erstelleListe_Contravariant();
@@ -28,8 +33,22 @@ public class Main {
 		zeichen4.add(new NächtlichesTempo30());
 //		zeichen4.add(new WerktagsTempo30());
 		
+		Supplier<Number> rng = Math::random;
+		Stream<? extends Number> stream = Stream.generate(rng);
+//		Collector<Object>
+//		Collector<Number>
+//		Collector<Double>
+		List<Number> collect = stream.collect(Collectors.toList());
 		// Covariant v
 		List<? extends Tempo30Schild> zeichen = erstelleListe_Covariant();
+		
+		Consumer<? super Object> ausgabe = (Object element) -> {
+			// element könnte sein: Tempo30Schild, Verkehrszeichen, Object
+			System.out.println("--> " + element.toString());
+			//element.auswirkung();
+		};
+		zeichen.forEach(ausgabe);
+		
 //		zeichen.add(new Tempo30Schild());
 //		zeichen.add(new NächtlichesTempo30());
 //		zeichen.add(new WerktagsTempo30());
