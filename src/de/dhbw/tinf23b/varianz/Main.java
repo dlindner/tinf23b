@@ -11,12 +11,12 @@ public class Main {
 
 	private static List<? extends Tempo30Schild> erstelleListe_Covariant() {
 		List<? extends Tempo30Schild> result = new ArrayList<NächtlichesTempo30>();
-		result.add(new NächtlichesTempo30());
+//		result.add(new NächtlichesTempo30());
 		return result;
 	}
 	
 	private static List<? super Tempo30Schild> erstelleListe_Contravariant() {
-		List<? super Tempo30Schild> result = new ArrayList<NächtlichesTempo30>();
+		List<? super Tempo30Schild> result = new ArrayList<Tempo30Schild>();
 		result.add(new NächtlichesTempo30());
 		return result;
 	}
@@ -28,11 +28,10 @@ public class Main {
 		zeichen4.add(new NächtlichesTempo30());
 //		zeichen4.add(new WerktagsTempo30());
 		
-		
 		// Covariant v
 		List<? extends Tempo30Schild> zeichen = erstelleListe_Covariant();
-		zeichen.add(new Tempo30Schild());
-		zeichen.add(new NächtlichesTempo30());
+//		zeichen.add(new Tempo30Schild());
+//		zeichen.add(new NächtlichesTempo30());
 //		zeichen.add(new WerktagsTempo30());
 		
 		zeichen.forEach(
@@ -56,8 +55,8 @@ public class Main {
 		zeichen2[0] = new NächtlichesTempo30();
 		zeichen2[1] = new NächtlichesTempo30();
 		zeichen2[2] = new NächtlichesTempo30();
-		zeichen2[3] = new Tempo30Schild();
-		zeichen2[4] = new WerktagsTempo30();
+//		zeichen2[3] = new Tempo30Schild();
+//		zeichen2[4] = new WerktagsTempo30();
 	}
 	
 	private static List<Tempo30Schild> erstelleListe_Invariant() {
