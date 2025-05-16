@@ -36,21 +36,29 @@ public class Main {
 				LinkedList<Integer> beobachteteStände = new LinkedList<Integer>();
 				int würfe = 0;
 				while (true) {
-					int aktuell = brunnen.stand();
-					if (!beobachteteStände.isEmpty()) {
-						Integer zuletzt = beobachteteStände.getLast();
-						if ((aktuell < zuletzt)) {
-							System.out.println(name + " !! " + zuletzt + " --> " + aktuell + " !!");
+//					int aktuell = brunnen.stand();
+//					if (!beobachteteStände.isEmpty()) {
+//						Integer zuletzt = beobachteteStände.getLast();
+//						if ((aktuell < zuletzt)) {
+//							System.out.println("Anomalie in " + name + " !! " + zuletzt + " --> " + aktuell + " !!");
+//						}
+//					}
+//					beobachteteStände.add(aktuell);
+					// -----
+					final int aktuelleWürfe = würfe;
+					boolean abbruch = brunnen.wennGrößerGleichAls(
+						10_000,
+						() -> {
+							System.out.println("Geworfen von " + name + ": " + aktuelleWürfe);
+						},
+						() -> {
+							brunnen.erhöheUmEins();
 						}
-					}
-					beobachteteStände.add(aktuell);
-					if (aktuell >= 10_000) {
-						System.out.println("Geworfen von " + name + ": " + würfe);
-						//System.out.println(beobachteteStände);
+					);
+					if (abbruch) {
 						return;
 					}
-					// -- Stopp T1
-					brunnen.ändereAuf(aktuell + 1);
+					//brunnen.ändereAuf(aktuell + 1);
 					würfe++;
 				}
 			},
