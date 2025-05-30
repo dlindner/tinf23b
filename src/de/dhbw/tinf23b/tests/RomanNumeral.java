@@ -1,5 +1,8 @@
 package de.dhbw.tinf23b.tests;
 
+/**
+ * Siehe das RomanNumeral-Kata
+ */
 public class RomanNumeral {
 	
 	public RomanNumeral() {
