@@ -14,7 +14,7 @@ public class Main {
 			// Tell-Stil (Command-Stil)
 			each.erstelleEtikettAuf(drucker);
 			
-			// Ask-Stil
+//			// Ask-Stil
 //			String matrikelnummer = each.matrikelnummer(); // Frage 1
 //			String vorname = each.vorname(); // Frage 2
 //			String nachname = each.nachname(); // Frage 3
